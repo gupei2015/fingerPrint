@@ -1,0 +1,14 @@
+com\td\fp\jni\FmdVerification.class
+com\td\fp\utils\FidFileHelper.class
+com\td\fp\activeX\FmdVerification.class
+com\td\fp\service\impl\FingerPrintCourtService.class
+com\td\fp\service\FingerPrintService.class
+com\td\fp\mybatis\domain\UserEnrollment.class
+com\td\fp\ServletInitializer.class
+com\td\fp\controller\FingerPrintController.class
+com\td\fp\mybatis\mapper\CrUserInfoMapper.class
+com\td\fp\mybatis\domain\UserInfo.class
+com\td\fp\mybatis\mapper\UserInfoMapper.class
+com\td\fp\mybatis\domain\CrUserInfo.class
+com\td\fp\common\UserRole.class
+com\td\fp\TdFingerPrintApplication.class

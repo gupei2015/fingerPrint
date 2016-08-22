@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0}
+body{background:#0c3874;font-size:14px;font-family:"微软雅黑 Light"}
+tr{}
+td{vertical-align:top}
+a{color:#4384d4;text-decoration:none}
+a:hover{color:#09F}

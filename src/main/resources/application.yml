@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8090
+  context-path:
+
+mybatis:
+  config: classpath:mybatis-config.xml
+
+activex:
+  codeBase: http://localhost:8090/activex/DPXUru.dll#version=2,10,0,9
+
+logging:
+  config: classpath:logback-${spring.profiles.active}.xml
+  level.*: INFO
+
+#Fid image 数据参数
+#fidTemplate:
+#  dataFile: D:/workspace/td/fingerPrint/target/classes/fidTemplate.dat
+#  width:  357
+#  height: 392
+#  dpi: 500
+#  position: 0
+#  cbeff: 3407615
+

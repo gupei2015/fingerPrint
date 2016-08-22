@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link th:href="@{/css/css.css}" rel="stylesheet"/>
+    <style>
+        a{color:#fff;text-decoration:none}
+        a:hover{color:#ffffff;text-decoration:underline}
+        .loading{background:url(/images/bg.png) no-repeat;width:900px;height:600px}
+        tr{}
+        td{vertical-align:top}
+        .input{font-size:14px;padding-left:20px;color:#fff;border:0;width:250px;height:40px;line-height:40px;margin:12px 0 0 60px;background-color:transparent}
+        .mm{color:#ffffff;font-weight:bold;font-size:14px}
+    </style>
+</head>
+<body>
+<div th:fragment="content">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td height="251" align="center"><img src="/images/logo.png" width="424" height="200"  style="margin-top:50px"/></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div style="width:376px;height:260px;margin:25px auto">
+                    <form id="form_fp" method="post" th:method="post" action = "/fp/index">
+                        <div style="height:66px;background:url(/images/input.png) no-repeat">
+                            <input name="userId" id="userId" type="text" value="请输入工号" class="input"
+                                   onfocus="if (value =='请输入工号'){value =''}"
+                                   onblur="if (value ==''){value='请输入工号'}"/>
+                            <input type="hidden"  id="fmdXml" name="fmdXml" value=""/>
+                        </div>
+                    </form>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="32%" height="50" th:text="${loginFailInfo}">&nbsp; </td>
+                            <td width="40%" style="padding-top:15px"><img src="/images/wz.png" width="124" height="26" /></td>
+                            <td width="28%" style="padding-top:18px;"><a href="loading.html" class="mm">密码登录</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center"><img src="/images/zw.png" width="128" height="128" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

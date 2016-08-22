@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一中院内网指纹登录管理系统</title>
+<link th:href="@{/css/css.css}" rel="stylesheet"/>
+<script th:src="@{/js/enrollment.js}"></script>
+
+
+
+<script language="Javascript">
+     resizeTo(900,600);
+
+    function hero()
+    {
+    var herowidth=916;//改为你要的网页宽度
+    var heroheight=663;//改为你要的网页高度
+    window.resizeTo(herowidth,heroheight);
+    }
+
+
+    hero();
+</script>
+
+<style type="text/css">
+.loading{background:#FFF;width:900px;height:600px}
+tr{vertical-align:top}
+td{vertical-align:top}
+.input{font-size:14px;padding-left:20px;color:#fff;border:0;width:250px;height:40px;margin:12px 0 0 60px;background-color:transparent}
+p{font-size:16px;color:#777777;font-weight:bold;}
+h1{float:left}
+.img1{height:290px;width:300px}
+.img1 .img{margin:80px 70px 0 70px }
+.img_t{width:150px;float:left;margin:30px 48px 10px 48px;height:30px;text-align:left;vertical-align:middle}
+.img_t1{width:150px;float:left;margin:10px 48px 10px 48px;height:30px;text-align:left;vertical-align:middle}
+.img_l{width:105px;height:105px;float:left;margin:40px 65px 0px 65px;}
+.left{float:left;;background:#fafafa;border-right:#e5e6e8 1px solid;width:244px;height:500px}
+font{font-weight:bold;font-size:25px}
+.img_l_cover{width:105px;height:105px;position:absolute;top:140px;left:65px;background:url(/images/pic_cover.png) no-repeat}
+.right{float:left;width:655px}
+.img_s_cover{width:116px;height:75px;background:url(/images/pic_cover_1.png) no-repeat top left;z-index:9999;position:absolute;top:13px;left:20px}
+.word_cover{position:absolute;top:40px;left:98px;z-index:9999}
+.word_cover a{color:#000;font-weight:bold}
+#zw{width:480px;height:280px;margin:0 auto;list-style-type:none}
+#zw_l{float:left;width:240px;height:280px;background:url(/images/hand_none.png) no-repeat left;;list-style-type:none}
+
+#zw_l ul{float:left;height:100px;margin-top:20px;list-style-type:none}
+#zw_l li{float:left;display:block;width:26px;height:100px;list-style-type:none;cursor:pointer}
+#zw_l li:hover{background:url(/images/zw_now.png) no-repeat}
+#zw_l li.now{display:block;width:26px;height:100px;background:url(/images/zw_now.png) no-repeat;z-index:9999}
+#zw_l .thumb{display:block;width:53px;height:60px;background:url(/images/images/01_r.png) no-repeat}
+#zw_l .thumb:hover{display:block;width:53px;height:60px;background:url(/images/zw_now_l.png) no-repeat;z-index:9999}
+#zw_r .thumb1{display:block;width:53px;height:60px;background:url(/images/images/01_l.png) no-repeat}
+#zw_r .thumb1:hover{display:block;width:53px;height:60px;background:url(/images/zw_now_r.png) no-repeat;z-index:9999}
+
+#zw_r{float:right;width:240px;height:280px;background:url(/images/hand_none.png) no-repeat right;;list-style-type:none}
+
+#zw_r ul{float:right;height:100px;margin-top:20px;list-style-type:none}
+#zw_r li{float:right;display:block;width:26px;height:100px;list-style-type:none;cursor:pointer}
+#zw_r li:hover{background:url(/images/zw_now.png) no-repeat}
+#zw_r li.now{display:block;width:26px;height:100px;background:url(/images/zw_now.png) no-repeat;z-index:9999}
+#zw_l .thumb.now{display:block;width:53px;height:60px;background:url(/images/zw_now_l.png) no-repeat;z-index:9999}
+#zw_r .thumb1.now{display:block;width:53px;height:60px;background:url(/images/zw_now_r.png) no-repeat;z-index:9999}
+
+#zw_l li.registered{display:block;width:26px;height:100px;background:url(/images/zw_al.png) no-repeat;z-index:9999}
+#zw_r li.registered{display:block;width:26px;height:100px;background:url(/images/zw_al.png) no-repeat;z-index:9999}
+#zw_l .thumb.registered{display:block;width:53px;height:60px;background:url(/images/zw_al_l.png) no-repeat;z-index:9999}
+#zw_r .thumb1.registered{display:block;width:53px;height:60px;background:url(/images/zw_al_r.png) no-repeat;z-index:9999}
+
+#zw_l li.registered.now{display:block;width:26px;height:100px;background:url(/images/zw_now.png) no-repeat;z-index:9999}
+#zw_r li.registered.now{display:block;width:26px;height:100px;background:url(/images/zw_now.png) no-repeat;z-index:9999}
+#zw_l .thumb.registered.now{display:block;width:53px;height:60px;background:url(/images/zw_now_l.png) no-repeat;z-index:9999}
+#zw_r .thumb1.registered.now{display:block;width:53px;height:60px;background:url(/images/zw_now_r.png) no-repeat;z-index:9999}
+
+</style>
+
+</head>
+<body onresize="hero();" onload="initEnrollment()">
+<div class="loading">
+    <div  style="display:none">
+        <select id="registeredIndex" name="registeredIndex">
+            <option th:each="enrollment, enrollmentS : ${enrollment.fmdXmls}" th:value="${enrollment.key}" th:text="${enrollment.key}"></option>
+        </select>
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <div style="width:900px;height:100px;background:url(/images/top.png) no-repeat">
+                    <!--<div class="img_s_cover"></div>-->
+                    <div class="word_cover"><a href="/fp/login">退出</a></div>
+                    <!--<img src="/images/pic_s.png" width="74" height="74" style="margin:13px 0 0 20px"/>-->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="left">
+                    <div class="img_l_cover"></div>
+                    <div class="img_l"><img src="/images/pic.png"/></div>
+                    <div class="img_t">
+                        <span>工号&nbsp;&nbsp;&nbsp;&nbsp;<font th:text="${enrollment.userId}"></font></span>
+                    </div>
+                    <div class="img_t1">
+                        <span>姓名&nbsp;&nbsp;&nbsp;&nbsp;<font th:text="${enrollment.userName}"></font></span>
+                    </div>
+                </div>
+                <div class="right">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><div style="margin:40px 40px 0px 40px;color:#666666;font-size:18px">要注册指纹，请单击下方手型图中的一个手指。已注册过指纹的手指将突出显示。</div></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <div id="zw">
+                                    <div id="zw_l">
+                                        <ul>
+                                            <li style="margin:46px 0 0 11px"></li>
+                                            <li style="margin:21px 0 0 8px"></li>
+                                            <li style="margin:6px 0 0 8px"></li>
+                                            <li style="margin:19px 0 0 6px"></li>
+                                            <li style="margin:-6px 0 0 72px" class="thumb"></li>
+                                        </ul>
+                                    </div>
+                                    <div id="zw_r">
+                                        <ul>
+                                            <li style="margin:46px 11px 0 0"  class="w1"></li>
+                                            <li style="margin:21px 8px 0 0 " class="w1"></li>
+                                            <li style="margin:6px 8px 0 0 " class="w1"></li>
+                                            <li style="margin:19px 6px 0 0" class="w1"></li>
+                                            <li style="margin:-6px 72px 0 0" class="thumb1"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="padding-top:30px">
+                                <a href="/fp/info"><img src="/images/btn4.png" width="194" height="66" border="0" /></a>
+                                <a href="javascript:capture()"><img src="/images/btn5.png" width="194" height="66" border="0" /></a></td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+

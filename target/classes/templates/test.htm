@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一中院内网指纹登录管理系统</title>
+<link th:href="@{/css/css.css}" rel="stylesheet"/>
+
+    <applet
+            codebase = "."
+            code = "FingerPrintApplet.class"
+            name = "fpApplet"
+            id = "fpApplet"
+    />
+
+<script language="Javascript">
+ 
+    function testApplet(){
+        alert("test applet "+fpApplet.test());
+    }
+	
+</script>
+</head>
+
+<body>
+  <div width="100%" height="100%"><font align="center" valign="center">Test Applet</font></div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/finger_print?useUnicode=true&characterEncoding=UTF8
+    username: td
+    password: td
+  #数据库连接池配置
+    max-active: 50
+    max-idle: 20
+    min-idle: 10
+    initial-size: 2
+    test-on-borrow: false
+    test-on-return: false
+    test-while-idle: true
+    validation-query: select 1
+    #每10分钟收集空闲连接，单位毫秒
+    time-between-eviction-runs-millis: 600000
+    #连接的最大空闲时间，单位毫秒，60分钟
+    min-evictable-idle-time-millis: 3600000
+    max-wait: 60000
+    jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
+
+

@@ -1,0 +1,28 @@
+img
+{
+    border: 0;
+    visibility: hidden;
+    background-color: white;
+}
+input
+{
+    width: 150px;
+    font-family: Tahoma;
+}
+div
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 300px;
+    background-color: #ffffff;
+    visibility: hidden;
+}
+textarea
+{
+    font-size: 11px;
+    width: 500px;
+    height: 175px;
+    font-family: Tahoma;
+}

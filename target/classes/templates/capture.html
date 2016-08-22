@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>一中院内网指纹登录管理系统</title>
+    <!--<link th:href="@{/css/fp.css}" rel="stylesheet"/>-->
+    <!--<link th:href="@{/css/core.css}" rel="stylesheet"/>-->
+    <link th:href="@{/css/css.css}" rel="stylesheet"/>
+
+    <object style="height: 0px; width: 0px;" id="objFeatureExtraction" name="objFeatureExtraction"
+            classid="clsid:733A2D1B-9F3D-423D-8700-4F2C8E88EAF9">
+    </object>
+    <object style="height: 0px; width: 0px;" id="objEnrollment" name="objEnrollment"
+            classid="clsid:A1589E23-FE6E-43D8-9EDF-93142671C47A">
+    </object>
+    <object style="height: 0px; width: 0px;" id="objComparison" name="objComparison"
+            classid="clsid:C864A916-E288-439B-8054-C695C9677D84">
+    </object>
+    <object style='height: 0px; width: 0px;' id='objReaderCollection' name='objReaderCollection'
+            classid='clsid:CAC5592F-EBA5-487C-AF8A-F35A70FAA33B'>
+    </object>
+    <object style='height: 0px; width: 0px;' id='objReader' name='objReader' classid='clsid:C4287526-1485-48CB-99BB-6CC4A3552B81'>
+    </object>
+    <script th:src="@{/js/capture.js}"></script>
+
+    <style>
+        .loading{background:#FFF;width:900px;height:600px}
+        tr{vertical-align:top}
+        td{vertical-align:top}
+        .input{font-size:14px;padding-left:20px;color:#fff;border:0;width:250px;height:40px;margin:12px 0 0 60px;background-color:transparent}
+        p{font-size:16px;color:#777777;font-weight:bold;}
+        h1{float:left}
+        .img1{height:290px;width:300px}
+        .img1 .img{margin:80px 70px 0 70px }
+        .img_t{width:150px;float:left;margin:30px 48px 10px 48px;height:30px;text-align:left;vertical-align:middle}
+        .img_t1{width:150px;float:left;margin:10px 48px 10px 48px;height:30px;text-align:left;vertical-align:middle}
+        .img_l{width:105px;height:105px;float:left;margin:40px 65px 0px 65px;}
+        .left{float:left;;background:#fafafa;border-right:#e5e6e8 1px solid;width:244px;height:500px}
+        font{font-weight:bold;font-size:25px}
+        b{font-size:25px;color:#ff0000}
+        .img_l_cover{width:105px;height:105px;position:absolute;top:159px;left:65px;background:url(/images/pic_cover.png) no-repeat}
+        .right{float:left;width:655px}
+        .title{margin:40px 40px 0px 40px;color:#666666;font-size:18px}
+        .step{width:370px;height:78px;margin:70px 20px 20px 0}
+        .img_step{margin-right:10px}
+        .img_s_cover{width:116px;height:75px;background:url(/images/pic_cover_1.png) no-repeat top left;z-index:9999;position:absolute;top:13px;left:20px}
+        .word_cover{position:absolute;top:40px;left:98px;z-index:9999}
+        .word_cover a{color:#000;font-weight:bold}
+    </style>
+
+    <script language="Javascript">
+        resizeTo(900,600);
+        function hero()
+        {
+            var herowidth=916;//改为你要的网页宽度
+            var heroheight=663;//改为你要的网页高度
+            window.resizeTo(herowidth,heroheight);
+        }
+        hero();
+    </script>
+
+
+</head>
+
+<body onresize="hero();" onload="Initialize();">
+<div class="loading">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <div style="width:900px;height:100px;background:url(/images/top.png) no-repeat">
+                    <!--<div class="img_s_cover"></div>-->
+                    <div class="word_cover"><a href="/fp/login">退出</a></div>
+                    <!--<img src="/images/pic_s.png" width="74" height="74" style="margin:13px 0 0 20px"/>-->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="left">
+                    <div class="img_l_cover"></div>
+                    <div class="img_l"><img src="/images/pic.png"/></div>
+                    <div class="img_t">
+                        <span>工号&nbsp;&nbsp;&nbsp;&nbsp;<font th:text="${loginUser.userId}"></font></span>
+                    </div>
+                    <div class="img_t1">
+                        <span>姓名&nbsp;&nbsp;&nbsp;&nbsp;<font th:text="${loginUser.userName}"></font></span>
+                    </div>
+                </div>
+                <div class="right">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="2"><div class="title">扫描您的&nbsp;&nbsp;&nbsp;&nbsp;
+                                <b th:if="${fingerIndex &lt; 5}">左</b>
+                                <b th:if="${fingerIndex &gt; 4}">右</b>
+                                手&nbsp;&nbsp;&nbsp;&nbsp;
+                                <b th:if="${fingerIndex %5==0}">小手指</b>
+                                <b th:if="${fingerIndex %5==1}">无名指</b>
+                                <b th:if="${fingerIndex %5==2}">中指</b>
+                                <b th:if="${fingerIndex %5==3}">食指</b>
+                                <b th:if="${fingerIndex %5==4}">拇指</b>
+                                指纹&nbsp;&nbsp;&nbsp;&nbsp;<b>4</b> 次</div></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" align="center">
+                                <table width="99%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:50px 0px 30px 50px">
+                                            <div style="width:134px;height:134px">
+                                                <img src="/images/ewm.gif" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:0 0 0 50px">
+                                            <img th:src="${'/images/ewm_hand'+ imgIndex +'.png'}"  width="160" height="160" />
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </td>
+                            <td align="center">
+                                <div class="step">
+                                    <img id="img_step1" src="/images/step_n_01.png" width="78" height="78" class="img_step"/>
+                                    <img id="img_step2" src="/images/step_n_02.png" width="78" height="78" class="img_step" />
+                                    <img id="img_step3" src="/images/step_n_03.png" width="78" height="78" class="img_step" />
+                                    <img id="img_step4" src="/images/step_n_04.png" width="78" height="78" class="img_step" />
+
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="captureStatus" align="center" class="title"><br/>将您的手指放到指纹阅读器上!</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="padding-top:30px"><a href="/fp/enroll"><img src="/images/btn4.png" width="194" height="66" border="0" /></a>
+                                <a href="javascript:register();"><img id="btnRegister" style="display:none" src="/images/btn6.png" width="194" height="66" border="0" /></a></td>
+                        </tr>
+                    </table>
+
+                    <form id="form_fp" th:method="post" action = "/fp/register">
+
+                        <input type="hidden"  id="userId" name="userId" th:value="${loginUser.userId}"/>
+                        <input type="hidden"  id="userName" name="userName" th:value="${loginUser.userName}"/>
+                        <input type="hidden"  id="fingerIndex" name="fingerIndex" th:value="${fingerIndex}"/>
+                        <input type="hidden"  id="fmdXml" name="fmdXml" value=""/>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.social-links {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.social-links > li {
+    width: 90%;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
+}
+
+table.altrowstable {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+
+table.altrowstable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+table.altrowstable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+.oddrowcolor {
+    background-color: #d4e3e5;
+}
+
+.evenrowcolor {
+    background-color: #c3dde0;
+}
+
+footer {
+    text-align: center;
+    height: 24px;
+    margin: 0 auto;
+    padding: 0;
+    bottom: 10px;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
+
+footer li {
+    background-color: white;
+}
+
+/**分页样式 Begin**/
+.paging {
+    width: 100%;
+}
+
+.total-p {
+    margin: 0;
+    padding: 0 0 0 5px;
+    color: #ed5565;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+}
+
+.paging .pagination {
+    margin: 0;
+    padding: 0;
+}
+
+.pagination-box {
+    padding: 5px 0 0 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/**分页样式 End**/
+
+table.altrowstable {
+    width: 100%;
+    border: 1px solid #999;
+}
+
+table.altrowstable th {
+    word-break: keep-all;
+    white-space: nowrap;
+    text-align: center;
+}
+
+table.altrowstable td {
+    text-align: center;
+}
+
+.pagination li a {
+    background-color: green;
+    color: white;
+}
+
+.login-form {
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -125px 0 0 -200px;
+    /*background: rgba(255,255,255,0.2);*/
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.login-form h3.tit {
+    font-size: 48px;
+    text-align: center;
+    color: #fff;
+    line-height: 1;
+    -webkit-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    -moz-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 14px;
+}
+
+.login-form p.desc {
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    margin: 10px 0;
+    -webkit-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    -moz-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.login-form ul {
+    overflow: hidden;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.login-form ul li {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    background: #fff;
+}
+
+.login-form ul li.li1 {
+    border-top-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    /*border-bottom: 1px solid transparent;*/
+}
+
+.login-form ul li.li2 {
+    border-bottom-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    margin: 1px 0 0 0;
+}
+
+.login-form ul li input {
+    display: block;
+    width: 100%;
+    height: 33px;
+    line-height: 33px;
+
+    font-size: 16px;
+    background: none;
+}
+
+.login-form .login-btn {
+    display: block;
+    width: 298px;
+    margin: 10px auto 0;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    background: #e63d44;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    cursor: pointer;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e63d44), to(#c11a22));
+    background-image: -webkit-linear-gradient(#e63d44, #c11a22);
+    background-image: linear-gradient(#e63d44, #c11a22);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    border: 1px solid #920c12;
+}
+
+.login-form .login-btn:hover, .login-form .login-btn:focus, .login-form .login-btn.active {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e3262e), to(#ab171e));
+    background-image: -webkit-linear-gradient(#e3262e, #ab171e);
+    background-image: linear-gradient(#e3262e, #ab171e);
+    background-color: #ab171e;
+    border-bottom-color: #820a0f;
+    border-left-color: #9a1015;
+    border-right-color: #9a1015;
+    border-top-color: #af151b;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
+}

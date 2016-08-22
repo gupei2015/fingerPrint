@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一中院内网指纹登录管理系统</title>
+<link th:href="@{/css/css.css}" rel="stylesheet"/>
+
+<script language="Javascript">
+
+    resizeTo(900,600);
+    function hero()    {
+        var herowidth=916;//改为你要的网页宽度
+        var heroheight=663;//改为你要的网页高度
+        window.resizeTo(herowidth,heroheight);
+    }
+    hero();
+
+    function validateInput(){
+        if (form_pw.loginName.value.trim()==''||form_pw.loginName.value.trim()=='请输入工号'){
+            alert('请输入工号');
+            form_pw.loginName.focus();
+            return false;
+        }
+
+        if (form_pw.password.value.trim()==''||form_pw.password.value.trim()=='请输入密码'){
+            alert('请输入密码');
+            form_pw.password.focus();
+            return false;
+        }
+        return true;
+
+    }
+
+    function login(){
+        if (validateInput()) {
+            form_pw.submit();
+        }
+    }
+</script>
+<style>
+.loading{background:url(/images/bg.png) no-repeat;width:900px;height:600px}
+tr{}
+td{vertical-align:top}
+.input{font-size:14px;padding-left:20px;color:#fff;border:0;width:250px;height:40px;line-height:40px;margin:12px 0 0 60px;background-color:transparent}
+</style>
+</head>
+
+<body onresize="hero();">
+<div class="loading">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="251" align="center"><img src="/images/logo.png" width="424" height="200"  style="margin-top:50px"/></td>
+  </tr>
+  <tr>
+    <td align="center">
+    <div style="width:376px;height:132px;margin:25px auto">
+       <form id="form_pw" name="form_pw" th:method="post" action = "/fp/enrollUser" onsubmit="return validateInput();">
+        <div style="height:66px;background:url(/images/input.png) no-repeat">
+         <input id="loginName" name="loginName" type="text" value="请输入工号" class="input"
+                onfocus="if (value =='请输入工号'){value =''}"
+                onblur="if (value ==''){value='请输入工号'}"/>
+        </div>
+        <div style="height:66px">
+           <div style="height:66px;background:url(/images/input1.png) no-repeat">
+             <input id="password" name="password" type="password" value=""  class="input"/>
+           </div>
+         </div>
+       </form>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" height="30" th:text="${loginFailInfo}">&nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="javascript:login()"><img src="/images/btn1.png" border="0"/></a>
+        <a href="/fp/login"><img src="/images/btn2.png" border="0" /></a></td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>

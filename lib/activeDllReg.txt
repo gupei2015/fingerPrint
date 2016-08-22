@@ -1,0 +1,1 @@
+gacutil -i .dll全文件名；regasm .dll全文件名

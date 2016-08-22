@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Finger print verification</title>
+    <link th:href="@{/css/fp.css}" rel="stylesheet"/>
+    <link th:href="@{/css/core.css}" rel="stylesheet"/>
+    <object style="height: 0px; width: 0px;" id="objFeatureExtraction" name="objFeatureExtraction"
+        classid="clsid:733A2D1B-9F3D-423D-8700-4F2C8E88EAF9"
+        th:text="${'codebase='+activeXUrl}">
+    </object>
+    <object style="height: 0px; width: 0px;" id="objEnrollment" name="objEnrollment"
+        classid="clsid:A1589E23-FE6E-43D8-9EDF-93142671C47A">
+    </object>
+    <object style="height: 0px; width: 0px;" id="objComparison" name="objComparison"
+        classid="clsid:C864A916-E288-439B-8054-C695C9677D84">
+    </object>
+    <object style='height: 0px; width: 0px;' id='objReaderCollection' name='objReaderCollection'
+        classid='clsid:CAC5592F-EBA5-487C-AF8A-F35A70FAA33B'>
+    </object>
+    <object style='height: 0px; width: 0px;' id='objReader' name='objReader' classid='clsid:C4287526-1485-48CB-99BB-6CC4A3552B81'>
+    </object>
+    <script th:src="@{/js/fingerPrint.js}"></script>
+</head>
+<body onload="Initialize();" style="font-family: Tahoma;
+    font-size: 11px;">
+	
+	<form id="form_fp" method="post" th:method="post">
+    <table align="center" height="200" width="300" >
+        <tr height="50"><td colspan="2" align="center">指纹登录</td></tr>
+
+        <tr height="25">
+            <td>用户名:</td>
+            <td width="200">
+                <input type="text" name="userId" id="userId" value="" />
+            </td>
+        </tr>
+
+        <!--<tr height="50"><td></td><td >-->
+            <!--<input width="100" type="button" name="btnTest" id="btnTest" value="登录" onclick="submitCompare();"/>-->
+        <!--</td></tr>-->
+		
+		<tr height="50">
+			<td colspan="2">
+                <input type="hidden"  id="fmdXml" name="fmdXml" value=""/>
+
+                <input type="radio" name="actionType" value="login" th:checked="true"/> 登录
+                <br/>
+                 <!--<input width="100" type="button" name="btnRegister" id="btnRegister" value="注册" onclick="fpRegister();"/>-->
+                <input type="radio" name="actionType" value="register" /> 注册
+                <!--<input type="radio" type="button" name="btnRegister" id="btnRegister" value="注册" onclick="fpRegister();"/>-->
+            </td>
+		</tr>
+		
+    </table>
+	</form>
+    
+</body>
+</html>
